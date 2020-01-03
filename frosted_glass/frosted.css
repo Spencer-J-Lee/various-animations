@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: url('snowy.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Dancing Script', cursive;
+}
+
+.frosted-glass {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+  margin: -10px;
+  background: inherit;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 1);
+  overflow: hidden;
+  z-index: 2;
+}
+
+.frosted-glass:after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  bottom: -10%;
+  left: -10%;
+  right: -10%;
+  background: inherit;
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.txt {
+  font-size: 72px;
+  text-align: center;
+  color: white;
+  mix-blend-mode: overlay;
+}

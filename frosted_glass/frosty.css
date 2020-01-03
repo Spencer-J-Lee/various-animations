@@ -1,0 +1,99 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('geometric.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  font-family: 'Dancing Script', cursive;
+}
+
+.frosty-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+  height: 55%;
+  background: inherit;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+
+  /* This causes an issue where the background scales with the container,
+     causing the background alignment to be offset */
+  animation-name: shrink;
+}
+
+.frosty-container:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: -10px;
+  filter: blur(10px);
+  background: inherit;
+  z-index: -1;
+
+  /* Enable for a brightened container */
+  /* mix-blend-mode: overlay; */
+
+  /* For some reason, this disables the mix-blend-mode... */
+  /* animation-name: focus-lens; */
+
+  /* For frostier, colored edges */
+  /* box-shadow: inset 0 0 3000px rgba(255, 255, 255, 0.5); */
+}
+
+.frosty-txt {
+  font-size: 96px;
+  text-align: center;
+  color: white;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+
+  /* For some reason, this disables the mix-blend-mode... */
+  /* animation-name: shrink-txt; */
+}
+
+.frosty-container,
+.frosty-container:after,
+.frosty-txt {
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+
+@keyframes shrink {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.65);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes shrink-txt {
+  0% {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+  100% {
+    transform: scale(0.94);
+    opacity: 0.25;
+  }
+}
+
+@keyframes focus-lens {
+  100% {
+    filter: blur(2px);
+  }
+}

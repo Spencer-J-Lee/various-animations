@@ -1,0 +1,77 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+}
+
+.balls-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+[class^='ball-'] {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0px 15px;
+  animation: bounceDown;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  opacity: 0;
+}
+
+.ball-1 {
+  background-color: #fa626c;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+}
+
+.ball-2 {
+  background-color: #faa462;
+  animation-timing-function: ease;
+  animation-delay: 0.2s;
+}
+
+.ball-3 {
+  background-color: #faf062;
+  animation-timing-function: ease-in;
+  animation-delay: 0.4s;
+}
+
+.ball-4 {
+  background-color: #b8fa62;
+  animation-timing-function: ease-out;
+  animation-delay: 0.6s;
+}
+
+.ball-5 {
+  background-color: #62b8fa;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.8s;
+}
+
+.ball-6 {
+  background-color: #b69ff3;
+  animation-timing-function: cubic-bezier(0.85, 0.46, 0.2, 0.93);
+  animation-delay: 1s;
+}
+
+@keyframes bounceDown {
+  0% {
+    transform: translateY(-3000px);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(25px);
+  }
+  75% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

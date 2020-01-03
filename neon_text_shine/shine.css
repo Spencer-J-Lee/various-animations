@@ -1,0 +1,91 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.neon-wrapper {
+  position: relative;
+  display: inline-flex;
+  background-color: black;
+  filter: brightness(300%);
+  overflow: hidden;
+}
+
+.txt {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 124px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.txt:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "And so I wake in the morning. And I step outside. And I take a deep breath and I get real high.";
+  mix-blend-mode: difference;
+  filter: blur(3px);
+}
+
+.gradient {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  bottom: 0%;
+  right: 0;
+  background: rgb(250,98,108);
+  background: linear-gradient(
+    90deg,
+    rgba(250,98,108,1) 0%, 
+    rgba(250,164,98,1) 8.33%, 
+    rgba(250,240,98,1) 16.67%, 
+    rgba(148,250,98,1) 25.0%, 
+    rgba(98,184,250,1) 33.33%, 
+    rgba(93,109,245,1) 41.67%, 
+    rgba(137,82,233,1) 50.0%,
+    rgba(93,109,245,1) 58.33%, 
+    rgba(98,184,250,1) 66.67%, 
+    rgba(148,250,98,1) 75.0%, 
+    rgba(250,240,98,1) 83.33%,
+    rgba(250,164,98,1) 91.67%,
+    rgba(250,98,108,1) 100.0%
+  );
+  background-size: 50% 100%;
+  mix-blend-mode: multiply;
+  animation: pan 10s linear infinite;
+
+  /* HIGHER NUMBER = SMOOTHER GRADIENT */
+  transform: scaleX(1.5);
+
+  /* ENABLE FOR DIAGONAL FLOW */
+  top: -110%;
+  left: 0;
+  bottom: -60%;
+  right: 0;
+  transform: rotate(45deg) scaleX(1.5);
+}
+
+.shine {
+  background: radial-gradient(circle, white, black 19%) center / 25% 15.6%;
+  position: absolute;
+  top: -130%;
+  left: 0%;
+  bottom: -90%;
+  right: 0%;
+  mix-blend-mode: color-dodge;
+  animation: pan 10s linear both infinite;
+  transform: rotate(15deg);
+}
+
+@keyframes pan {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
